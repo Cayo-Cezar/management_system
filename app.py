@@ -54,6 +54,24 @@ def novo_paciente():
     return render_template('novo_paciente.html')
 
 
+@app.route('/agendar/<int:paciente_id>', methods=['GET', 'POST'])
+def agendar(paciente_id):
+    if request.method =='POST':
+        data_hora = request.form['data_hora']
+        descricao = request.form['descricao'] 
+        conn= sqlite3.connect('gestao_hospitalar.db')
+        cursor = conn.cursor()
+        cursor.execute('''
+            INSERT INTO consultas (paciente_id, data_hora, descricao)    
+            VALUES (?, ?, ?)           
+
+        ''',(paciente_id, data_hora, descricao))   
+        conn.commit()
+        conn.close()
+    return render_template('agendar.html')
+
+
+
 @app.route('/limpar_pacientes')
 def limpar_pacientes():
     conn = sqlite3.connect('gestao_hospitalar.db')

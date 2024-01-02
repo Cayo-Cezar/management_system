@@ -40,6 +40,20 @@ li{
     transition: background-color 0.3s;
 }
 
+.agendar-btn{
+    background-color: 	rgb(255, 191, 0);
+    border: none; 
+    color: white;
+    padding:10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
 .clear-btn{
     background-color: rgb(209,55,55);
     border: none;
@@ -55,3 +69,8 @@ li{
     transition: background-color 0.3s;
 }
 
+.add-patient, 
+.clear-btn,
+.agendar-btn{
+    float: center;
+}
